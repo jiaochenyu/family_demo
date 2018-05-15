@@ -1,0 +1,25 @@
+server:
+  port: 8426
+  servlet:
+    context-path: /
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/family?useunicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false
+    username: root
+    password: root
+  jackson:
+    dateFormat: yyyy-MM-dd HH:mm:ss #
+    timeZone: GMT+8 #
+    defaultPropertyInclusion: non_null
+mybatis:
+  mapperLocations: mappers/*.xml
+logging:
+  level:
+    com.jcy: debug
+    com.jcy.mapper: debug
+swagger:
+  enabled: true
+  title: 矫哥
+  description: 2603管账
+  basePackage: com.jcy.controller
+  version: 0.0.1

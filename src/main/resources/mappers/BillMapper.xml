@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jcy.mapper.BillMapper">
+
+
+    <select id="selectPics" resultType="java.lang.String">
+        SELECT p.picture
+        FROM tab_picture p , tab_bill_picture  bp
+        WHERE bp.bill_id  = #{id} AND  bp.pic_id = p.id
+    </select>
+
+    <select id="selectBill" resultType="com.jcy.domain.Bill">
+        SELECT  *
+        FROM tab_bill
+        WHERE id = #{id}
+
+    </select>
+    <select id="selectCategorys" resultType="com.jcy.domain.Category">
+      SELECT c.id,c.category_name,c.user_id
+      FROM
+        tab_bill_category bc,
+        tab_category c
+      WHERE
+        bc.bill_id = #{id}
+        AND bc.category_id = c.id
+    </select>
+</mapper>
